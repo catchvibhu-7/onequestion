@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Nine Years, One Question?</title>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>
+                Nine Years,<br />
+                One Question?
+            </h1>
+
+            <section class="cta">
+    <a
+        href="episodes/reader.html"
+        class="cta-btn"
+        id="startReading"
+        aria-label="Start or resume reading">
+        ▶ Start Reading
+    </a>
+</section>
+
+            <div class="column-box">
+                <div>
+                    <p class="warning">
+                        ⚠ Poor decisions, emotional damage, bad puns, and a concerning lack of self-control around
+                        birthdays.
+                    </p>
+                </div>
+                <div>
+                    <p><strong>Genre:</strong> Slice of Life, Heartfelt, Humor</p>
+                    <p><strong>Cast:</strong> Male lead: V , Female laed : P</p>
+                </div>
+            </div>
+
+            <h3>From the Author</h3>
+            <p>
+                This is a story that V and P have shared for a little over nine years, told entirely from V’s side. It
+                contains memories, mistakes, missed chances, and jokes that somehow survived all of that. For the sake
+                of the story, V will occasionally be referred to as “I”. This is intentional. Also lazy. I hope you
+                enjoy this. And yes — the bad puns stay.
+            </p>
+            <div class="column-box">
+                <div class="window-left"><h2>Chapters</h2></div>
+                <div class="window-right">
+                    <select id="bookSelect"></select>
+                </div>
+            </div>
+            <div class="paper-card">
+                <div class="cards" id="episodeCards"></div>
+
+<script src="data/episodes.js"></script>
+<script src="js/renderEpisodes.js"></script>
+
+                <!-- <div class="cards">
+                    <a href="episodes/ep0.html" class="card"
+                        >Pilot — Orientation Day.<br /><span>The day everything quietly began.</span></a
+                    >
+                    <a href="episodes/ep1.html" class="card"
+                        >Episode 1 — The Incident.<br /><span>A towel. A dare. A disaster.</span></a
+                    >
+                    <a href="episodes/ep2.html" class="card"
+                        >Episode 2 — The Holy Grail.<br /><span>Anime, trust, and One Piece.</span></a
+                    >
+                    <a href="episodes/ep3.html" class="card"
+                        >Episode 3 — The Photo That Shouldn't Exists.<br /><span
+                            >The picture that should not exist.</span
+                        ></a
+                    >
+                    <a href="episodes/ep4.html" class="card"
+                        >Episode 4 — The Overconfidence Arc.<br /><span>Alcohol met vocabulary.</span></a
+                    >
+                    <a href="episodes/ep5.html" class="card"
+                        >Episode 5 — End of Year One & the Art of Breaking Things.<br /><span
+                            >Endings disguised as starts.</span
+                        ></a
+                    >
+                    <a href="episodes/ep6.html" class="card"
+                        >Episode 6 — The “I’m Totally Over This” Arc (I Was Not).<br /><span>Or pretending to.</span></a
+                    >
+                    <a href="episodes/ep7.html" class="card"
+                        >Episode 7 — The Great Reset.<br /><span>A hug fixes things.</span></a
+                    >
+                    <a href="episodes/ep8.html" class="card"
+                        >Episode 8 — Final Year & When the World Paused.<br /><span>Covid and distance.</span></a
+                    >
+                    <a href="episodes/ep9.html" class="card"
+                        >Episode 9 — Pune, Potatoes, and Poor Decisions.<br /><span>Life carries on.</span></a
+                    >
+                    <a href="episodes/ep10.html" class="card"
+                        >Episode 10 — The Meeting That Didn’t Happen.<br /><span>Plans vs reality.</span></a
+                    >
+                    <a href="episodes/ep11.html" class="card"
+                        >Episode 11 — A Call from Far Away.<br /><span>The reason revealed.</span></a
+                    >
+                    <div class="card locked">
+                        Finale — The Report Card<br /><span
+                            >This should be a secret until its time to be reaveled.</span
+                        >
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <script>
+  const startBtn = document.getElementById("startReading");
+  const lastEpisode = localStorage.getItem("lastEpisode");
+
+  const valid = lastEpisode && episodes?.some(e => e.id === lastEpisode);
+
+  if (valid) {
+    startBtn.href = `episodes/reader.html?id=${lastEpisode}`;
+    startBtn.textContent = "▶ Resume Reading";
+  } else {
+    startBtn.href = "episodes/reader.html?id=ep0";
+    localStorage.removeItem("lastEpisode");
+  }
+</script>
+        
+        <script>
+  // Restore scroll
+  const scrollY = sessionStorage.getItem("indexScroll");
+  if (scrollY) {
+    window.scrollTo(0, parseInt(scrollY, 10));
+  }
+
+  // Save scroll on navigate away
+  window.addEventListener("beforeunload", () => {
+    sessionStorage.setItem("indexScroll", window.scrollY);
+  });
+</script>
+
+    </body>
+    
+</html>

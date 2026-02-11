@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <link rel="stylesheet" href="../style.css">
+    </head>
+    <body>
+    <div class="container">
+    <article class="reader">
+
+  <!-- 🔝 Top navigation 
+  <nav class="reader-top-nav">
+    <a
+      href="../index.html"
+      class="cta-btn secondary"
+      aria-label="Go to home page"
+    >
+      ⌂ Home
+    </a>
+  </nav> -->
+
+  <!-- 🧭 Breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="../index.html">🏠 Home</a>
+  <span>/</span>
+  <span id="breadcrumb-book"></span>
+  <span>/</span>
+  <span id="breadcrumb-current"></span>
+</nav>
+
+
+  <h1 id="title"></h1>
+  <p class="subtitle" id="subtitle"></p>
+
+  <div id="content" class="content"></div>
+
+  <!-- 🔻 Bottom navigation -->
+  <section class="cta reader-nav">
+    <a
+      id="prev"
+      class="cta-btn secondary"
+      href="#"
+      aria-label="Previous episode"
+    >
+      ← Previous
+    </a>
+
+    <a
+      id="next"
+      class="cta-btn"
+      href="#"
+      aria-label="Next episode"
+    >
+      Next →
+    </a>
+  </section>
+
+</article>
+
+<script src="../data/episodes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="../js/reader.js"></script>
+</div>
+    </body>
+</html>
+
+
