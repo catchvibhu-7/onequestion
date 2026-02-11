@@ -1,0 +1,564 @@
+/* ================================
+   CSS Variables & Reset
+   ================================ */
+
+/* SVG color filter for gold (#FBB03B) */
+.svg-gold {
+    filter: brightness(0) saturate(100%) invert(72%) sepia(98%) saturate(1200%) hue-rotate(354deg) brightness(101%) contrast(96%);
+}
+
+/* SVG color filter for phoenix-orange (#d89333) */
+.svg-orange {
+    filter: brightness(0) saturate(100%) invert(58%) sepia(89%) saturate(400%) hue-rotate(360deg) brightness(95%) contrast(90%);
+}
+
+:root {
+    /* Light Theme Colors */
+    --bg-primary: #f5f5f5;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #fafafa;
+
+    /* Phoenix Brand Colors */
+    --phoenix-orange: #d89333;
+    --phoenix-gold: #ffc641;
+    --phoenix-yellow: #FFD700;
+
+    /* Text Colors */
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --text-tertiary: #6a6a6a;
+    --text-muted: #9a9a9a;
+
+    /* Paper Color Palette (for cards) */
+    --paper-white: #FFFFFF;
+    --paper-border: #e0e0e0;
+
+    /* Accent Colors */
+    --success-green: #85a300;
+    --hint-blue: #6c9ef8;
+
+    /* Fonts */
+    --font-brand: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-handwritten: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Lora', Georgia, 'Times New Roman', serif;
+
+    /* Shadows */
+    --shadow-paper: 0 2px 8px rgba(0, 0, 0, 0.08),
+                     0 1px 4px rgba(0, 0, 0, 0.04);
+    --shadow-lifted: 0 4px 12px rgba(0, 0, 0, 0.1),
+                      0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+/*body {
+    margin: 0;
+    background: #0e0e0e;
+    color: #f4f4f4;
+    font-family: Inter;
+    font-family: var(--font-body);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}*/
+body {
+    margin: 0;
+    background: #0e0e0e;
+    color: #f4f4f4;
+    font-family: Inter;
+} 
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+}
+h1,
+h2,
+h3 {
+    font-family: "Playfair Display", serif;
+}
+.cards {
+    margin-top: 30px;
+}
+.card {
+    display: block;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    color: #f4f4f4;
+    text-decoration: none;
+}
+.card span {
+    color: #d6b27c;
+    font-size: 0.9rem;
+}
+.card:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+.locked {
+    opacity: 0.5;
+    pointer-events: none;
+}
+.warning {
+    opacity: 0.8;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+button {
+    background: #e6c28b;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #f4f4f4;
+}
+button:hover {
+    background: var(--phoenix-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(216, 147, 51, 0.4);
+}
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(216, 147, 51, 0.3);
+}
+
+button i {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+button:hover i {
+    transform: translateX(4px);
+}
+.cta {
+  text-align: left;
+  margin-top: 2rem;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 15px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #e6c28b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.cta-btn:hover {
+  background: var(--phoenix-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(216, 147, 51, 0.4);
+}
+
+.cta-btn:active {
+  transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(216, 147, 51, 0.3);
+}
+.blur {
+    filter: blur(8px);
+    transition: filter 1.5s ease;
+    cursor: pointer;
+}
+.blur:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+.revealed {
+    filter: blur(0);
+}
+.reveal-btn {
+    margin-top: 30px;
+}
+.post-credit {
+    margin-top: 60px;
+    opacity: 0.7;
+    font-style: italic;
+}
+/* ================================
+   Paper card
+   ================================ */
+.game-container {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.paper-card {
+    background: #000000 !important;
+    max-width: 720px;
+    width: 100%;
+    padding: 48px;
+    position: relative;
+    box-shadow: var(--shadow-paper);
+    margin-bottom: 24px;
+
+    /* Torn paper edges - organic and irregular */
+    clip-path: polygon(
+        0% 1.5%,
+        1% 0.5%,
+        2% 1.8%,
+        3% 0.8%,
+        4% 1.2%,
+        5% 0.3%,
+        6% 1.5%,
+        7% 0.9%,
+        8% 1.7%,
+        9% 0.6%,
+        10% 1.3%,
+        12% 0.4%,
+        14% 1.6%,
+        16% 0.7%,
+        18% 1.4%,
+        20% 1%,
+        23% 0.5%,
+        26% 1.2%,
+        30% 0.8%,
+        35% 1.5%,
+        40% 0.6%,
+        45% 1.1%,
+        50% 0.9%,
+        55% 1.3%,
+        60% 0.7%,
+        65% 1.6%,
+        70% 0.4%,
+        74% 1.2%,
+        77% 0.8%,
+        80% 1.4%,
+        82% 0.9%,
+        84% 1.1%,
+        86% 0.5%,
+        88% 1.5%,
+        90% 0.7%,
+        91% 1.3%,
+        92% 0.6%,
+        93% 1.2%,
+        94% 0.8%,
+        95% 1.4%,
+        96% 0.9%,
+        97% 1.1%,
+        98% 0.5%,
+        99% 1.2%,
+        100% 0.8%,
+
+        100% 2%,
+        99.5% 4%,
+        99.8% 6%,
+        99.3% 8%,
+        99.7% 10%,
+        99.2% 12%,
+        99.6% 15%,
+        99.4% 18%,
+        99.8% 22%,
+        99.1% 26%,
+        99.5% 30%,
+        99.3% 35%,
+        99.7% 40%,
+        99.4% 45%,
+        99.6% 50%,
+        99.2% 55%,
+        99.8% 60%,
+        99.3% 65%,
+        99.6% 70%,
+        99.4% 74%,
+        99.7% 78%,
+        99.3% 82%,
+        99.6% 86%,
+        99.2% 90%,
+        99.5% 93%,
+        99.7% 96%,
+        99.4% 98%,
+        99.8% 99%,
+        99.2% 99.5%,
+        99.6% 100%,
+
+        99% 99.5%,
+        97% 99.8%,
+        95% 99.2%,
+        93% 99.6%,
+        91% 99.3%,
+        89% 99.7%,
+        87% 99.4%,
+        85% 99.8%,
+        82% 99.2%,
+        79% 99.5%,
+        76% 99.3%,
+        73% 99.7%,
+        69% 99.4%,
+        65% 99.6%,
+        60% 99.2%,
+        55% 99.8%,
+        50% 99.1%,
+        45% 99.5%,
+        40% 99.3%,
+        35% 99.7%,
+        30% 99.4%,
+        26% 99.6%,
+        22% 99.2%,
+        18% 99.8%,
+        15% 99.3%,
+        12% 99.6%,
+        10% 99.4%,
+        8% 99.7%,
+        6% 99.3%,
+        4% 99.6%,
+        2% 99.2%,
+        1% 99.5%,
+        0.5% 99.8%,
+
+        0.8% 98%,
+        0.3% 96%,
+        0.7% 94%,
+        0.4% 92%,
+        0.9% 90%,
+        0.2% 87%,
+        0.6% 84%,
+        0.4% 81%,
+        0.8% 78%,
+        0.3% 74%,
+        0.7% 70%,
+        0.5% 66%,
+        0.9% 62%,
+        0.2% 58%,
+        0.6% 54%,
+        0.4% 50%,
+        0.8% 46%,
+        0.3% 42%,
+        0.7% 38%,
+        0.5% 34%,
+        0.9% 30%,
+        0.2% 26%,
+        0.6% 22%,
+        0.4% 18%,
+        0.8% 15%,
+        0.3% 12%,
+        0.7% 9%,
+        0.5% 6%,
+        0.9% 4%,
+        0.3% 2%
+    );
+}
+
+.paper-card.section {
+    display: none;
+}
+
+.paper-card.section.active {
+    display: block;
+}
+/* ================================
+   Get Started Button
+   ================================ */
+
+.get-started-container {
+    text-align: center;
+    margin-top: 32px;
+}
+
+.get-started-button {
+    background: #e6c28b; /*var(--phoenix-orange);*/
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-family: var(--font-brand);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(216, 147, 51, 0.3);
+}
+
+.get-started-button:hover {
+    background: var(--phoenix-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(216, 147, 51, 0.4);
+}
+
+.get-started-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(216, 147, 51, 0.3);
+}
+
+.get-started-button i {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.get-started-button:hover i {
+    transform: translateX(4px);
+}
+/* ================================
+   Get Started Button
+   ================================ */
+.paste-button {
+  position: relative;
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.button1 {
+  background-color: #4CAF50;
+  color: #212121;
+  padding: 10px 15px;
+  font-size: 15px;
+  font-weight: bold;
+  border: 2px solid transparent;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  font-size: 13px;
+  position: absolute;
+  z-index: 1;
+  min-width: 200px;
+  background-color: #212121;
+  border: 2px solid #4CAF50;
+  border-radius: 0px 15px 15px 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  color: #4CAF50;
+  padding: 8px 10px;
+  text-decoration: none;
+  display: block;
+  transition: 0.1s;
+}
+
+.dropdown-content a:hover {
+  background-color: #4CAF50;
+  color: #212121;
+}
+
+.dropdown-content a:focus {
+  background-color: #212121;
+  color: #4CAF50;
+}
+
+.dropdown-content #top:hover {
+  border-radius: 0px 13px 0px 0px;
+}
+
+.dropdown-content #bottom:hover {
+  border-radius: 0px 0px 13px 13px;
+}
+
+.paste-button:hover button {
+  border-radius: 15px 15px 0px 0px;
+}
+
+.paste-button:hover .dropdown-content {
+  display: block;
+}
+
+
+
+.window-controls {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.window-right {
+ 
+  align-items: right;
+  margin-right: 16px;
+}
+.window-left {
+  
+  align-items: left;
+  margin-left: 16px;
+}
+
+.column-box {
+    display: flex;
+  flex-direction: row; /* Arranges items horizontally */
+    justify-content: space-between;
+  align-items: center; /* Equivalent to alignVertical: "MIDDLE" */
+  gap: 20px; /* Controls spacing between items */
+  width: 100%;
+}
+
+.blur-block {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.blur-block .blurred {
+  filter: blur(10px);
+  transition: filter 0.4s ease;
+}
+
+.blur-block[data-revealed="true"] .blurred {
+  filter: blur(0);
+}
+
+.reveal-btn {
+  margin-top: 10px;
+  padding: 6px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.reader-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 2.5rem;
+}
+
+.cta-btn.secondary {
+  background: var(--phoenix-gold);
+  color: #111;
+  border: 1px solid #111;
+}
+
+.cta-btn.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+.breadcrumbs {
+  font-family: Inter, sans-serif;
+  font-size: 0.85rem;
+  margin-bottom: 1.2rem;
+  color: #666;
+}
+
+.breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs span {
+  margin: 0 0.3rem;
+}
