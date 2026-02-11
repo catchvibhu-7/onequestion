@@ -36,9 +36,7 @@ Pema Lhamu Tamang,
 Would you like to be my girlfriend?
 
 If the answer is no, I will respect it completely.
-I just didn’t want to look back one day and regret not asking what if.
-
-Some things might change, but I will always be there for you.
+I just didn’t want to look back one day and regret not asking.
 
 And if the answer is yes —
 then I’ll go all in.
@@ -47,5 +45,6 @@ Maybe we finally get to write Part Two together this time.
 
 Report Card:
 You pass.
+
 
 — Fin
