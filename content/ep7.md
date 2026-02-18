@@ -1,4 +1,8 @@
-After almost a year of not really talking, and realising P still occupies a permanent section of my brain, I decide avoidance has officially stopped working.
+After almost a year of not really talking,
+
+and realising P still occupies a permanent section of my brain.
+
+I decide avoidance has officially stopped working.
 
 I choose courage.
 
@@ -8,31 +12,35 @@ Or both.
 
 I decide to talk to P again.
 
-Yes — I discuss this with my girlfriend at the time.
-The logic was simple (and flawed):
+Yes — I discussed this with my girlfriend at the time.
 
-If I become friends with P again, I’ll finally get over her.
+The logic was simple (and flawed),
+
+**If I become friends with P again, I’ll finally get over her.**
 
 Also, I have a girlfriend, so obviously no funny business.
 
-(Narrator voice: He was wrong.)
+(Narrator's voice: He was wrong. So wrong.)
 
 After many failed walk-pasts and aborted conversations…
 
 P’s birthday arrives.
 
-She’s walking past me.
+She’s walks past me.
 
-“Hey, P.”
+***“Hey!”***
 
 She turns.
 
-“Hey, V. Long time.”
+**“Hey, V. Long time.”**
 
-“HAPPY BIRTHDAY.”
+with every ounce of everything I had, I say.
 
-She smiles.
-Says thank you.
+***“HAPPY BIRTHDAY P.”***
+
+She smiles,
+says thank you.
+
 And hugs me.
 
 That’s it.
@@ -42,15 +50,16 @@ That’s all it took.
 The awkwardness evaporates.
 My nervous system resets.
 
-The Great Reset.
+**The Great Reset.**
 
 Things don’t go back to normal instantly — but they do, eventually.
 
-That’s why I never forget her birthday.
-It’s special to me in a way I’ve never explained before.
+That’s why, I never forget her birthday.
 
-Lunches return.
-Conversations return.
+It’s special to me in a way. I’ve never explained before.
+
+Lunches,
+Conversations,
 Comfort returns.
 
 I’m happy.
@@ -62,6 +71,6 @@ But that’s on me.
 She keeps some distance.
 So do I.
 
-We keep our feelings on a leash.
+I keep my feelings on a leash.
 
 Mostly.

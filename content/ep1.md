@@ -1,10 +1,8 @@
-(Also known as V’s Villain Origin Story)
-
 A few weeks pass. Classes begin. Friendships form — both in class and in the hostel.
 
 By now, I have noticed something important.
 
-P is also a hosteller.
+P is also a resident student.
 
 Hope rises. Confidence does not.
 
@@ -12,24 +10,28 @@ And then… the day arrives.
 
 The canteen is loud. Dinner-time chaos.
 
-I am sitting near the cafeteria door, playing Truth or Dare with friends — a game invented solely to ruin lives.
+I am sitting near the cafeteria door, playing Truth or Dare with friends 
+
+— a game invented solely to ruin lives.
 
 P walks past with her group.
 
 She has a white towel draped over her head.
 
-One of my friends, M, notices me staring at her with what can only be described as a criminal amount of affection in my eyes.
+One of my friends M!,
+
+notices me staring at her with what can only be described as a criminal amount of affection in my eyes.
 
 The bottle spins.
 
 It lands on me.
 
-I choose Dare — because I am an optimist and, clearly, stupid.
+I choose Dare — because I am an optimist and, clearly stupid.
 
 M smiles.
 
-“You see that girl with the towel on her head?
-Go ask her why it’s there.”
+*“You see that girl with the towel on her head?
+Go ask her why it’s there.”*
 
 I know it is embarrassing.
 
@@ -41,24 +43,25 @@ I whisper to myself, “Here goes nothing.”
 
 I walk up to her, tiptoeing like that will somehow help.
 
-“Hey.”
+***“Hey.”***
 
-She looks at me. Confused.
+She looks at me, confused. And Says -
 
-P: “Yeah?”
+ ***“Yeah?”***
 
-Me:
-“Why do you ha—hab—have a towel on your head?”
+Me losing every bit hormonal confidence.
 
-(Internally screaming.)
+**“Why do you ha—hab—have a towel on your head?”**
 
-She looks me dead in the eyes, visibly annoyed, and says:
+<u>(Internally screaming.)</u>
 
-“Why do you think it’s there?”
+She looks me dead in my eyes, visibly annoyed, and says,
+
+***“Why do you think it’s there?”***
 
 I panic.
 
-“I’m sorry, I know why it’s there, it was a dare, sorryyyyyyy!”
+**“I’m sorry, I know why it’s there, it was a dare, sorryyyyyyy!”**
 
 And I run.
 
@@ -68,8 +71,10 @@ I leave the scene entirely.
 
 To this day, this remains my strongest and worst opening line EVER.
 
+<u>(This event could have trigered my Villain Origin ARC.)</u>
+
 Later, M casually informs me:
 
-“Oh, by the way… she’s my dorm-mate.”
+*“Oh, by the way… she’s my dorm-mate.”*
 
 I hate you, M.

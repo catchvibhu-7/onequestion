@@ -9,7 +9,7 @@ const episodes = [
   },
   {
     id: "ep1",
-    title: "Episode 1 — The Incident.",
+    title: "Chapter 1 — The Incident.",
     subtitle: "A towel. A dare. A disaster.",
     locked: false,
     file: "ep1.md",
@@ -17,7 +17,7 @@ const episodes = [
   },
   {
     id: "ep2",
-    title: "Episode 2 — The Holy Grail.",
+    title: "Chapter 2 — The Holy Grail.",
     subtitle: "Anime, trust, and One Piece.",
     locked: false,
     file: "ep2.md",
@@ -25,7 +25,7 @@ const episodes = [
   },
   {
     id: "ep3",
-    title: "Episode 3 — The Photo That Shouldn't Exist.",
+    title: "Chapter 3 — The Photo That Shouldn't Exist.",
     subtitle: "The picture that should not exist.",
     locked: false,
     file: "ep3.md",
@@ -33,7 +33,7 @@ const episodes = [
   },
   {
     id: "ep4",
-    title: "Episode 4 — The Overconfidence Arc.",
+    title: "Chapter 4 — The Overconfidence Arc.",
     subtitle: "Alcohol met vocabulary.",
     locked: false,
     file: "ep4.md",
@@ -41,7 +41,7 @@ const episodes = [
   },
   {
     id: "ep5",
-    title: "Episode 5 — End of Year One & the Art of Breaking Things.",
+    title: "Chapter 5 — End of Year One & the Art of Breaking Things.",
     subtitle: "Endings disguised as starts.",
     locked: false,
     file: "ep5.md",
@@ -49,7 +49,7 @@ const episodes = [
   },
   {
     id: "ep6",
-    title: "Episode 6 — The “I’m Totally Over This” Arc (I Was Not).",
+    title: "Chapter 6 — The “I’m Totally Over This” Arc (I Was Not).",
     subtitle: "Or pretending to.",
     locked: false,
     file: "ep6.md",
@@ -57,7 +57,7 @@ const episodes = [
   },
   {
     id: "ep7",
-    title: "Episode 7 — The Great Reset.",
+    title: "Chapter 7 — The Great Reset.",
     subtitle: "A hug fixes things.",
     locked: false,
     file: "ep7.md",
@@ -65,7 +65,7 @@ const episodes = [
   },
   {
     id: "ep8",
-    title: "Episode 8 — Final Year & When the World Paused.",
+    title: "Chapter 8 — Final Year & When the World Paused.",
     subtitle: "Covid and distance.",
     locked: false,
     file: "ep8.md",
@@ -73,7 +73,7 @@ const episodes = [
   },
   {
     id: "ep9",
-    title: "Episode 9 — Pune, Potatoes, and Poor Decisions.",
+    title: "Chapter 9 — Pune, Potatoes, and Poor Decisions.",
     subtitle: "Life carries on.",
     locked: false,
     file: "ep9.md",
@@ -81,7 +81,7 @@ const episodes = [
   },
   {
     id: "ep10",
-    title: "Episode 10 — The Meeting That Didn’t Happen.",
+    title: "Chapter 10 — The Meeting That Didn’t Happen.",
     subtitle: "Plans vs reality.",
     locked: false,
     file: "ep10.md",
@@ -89,7 +89,7 @@ const episodes = [
   },
   {
     id: "ep11",
-    title: "Episode 11 — A Call from Far Away.",
+    title: "Chapter 11 — A Call from Far Away.",
     subtitle: "The reason revealed.",
     locked: false,
     file: "ep11.md",
@@ -97,10 +97,10 @@ const episodes = [
   },
   {
     id: "ep12",
-    title: "Episode 12 — When Episodes Get Shorter.",
+    title: "Chapter 12 — When Chapters Get Shorter.",
     subtitle: "If she is happy I am happy.",
     locked: false,
-    file: "ep11.md",
+    file: "ep12.md",
     book: "Book 1"
   },
   {
@@ -115,7 +115,7 @@ const episodes = [
 ];
 const postCredit = {
   id: "post-credit",
-  title: "After the Credits",
+  title: "Credits",
   subtitle: "For those who stayed.",
   file: "post-credit.md",
   unlockFrom: "finale"

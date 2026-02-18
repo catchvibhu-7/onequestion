@@ -1,139 +1,123 @@
 <!doctype html>
 <html lang="en">
     <head>
+        <script src="js/guard.js"></script>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://catchvibhu-7.github.io/onequestionv2/" />
+        <meta property="og:title" content="Nine Years, One Question?" />
+        <meta
+            property="og:description"
+            content="A personal anthology of memories, mistakes, and the jokes that survived it all. Told from V’s side." />
+        <meta property="og:image" content="https://your-site-url.com/assets/og-preview.png" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://catchvibhu-7.github.io/onequestionv2/" />
+        <meta property="twitter:title" content="Nine Years, One Question?" />
+        <meta
+            property="twitter:description"
+            content="A personal anthology of memories, mistakes, and the jokes that survived it all." />
+        <meta property="twitter:image" content="https://catchvibhu-7.github.io/onequestionv2/assets/og-preview.png" />
+        <link rel="icon" type="image/png" href="favicon.png" />
+
         <meta charset="UTF-8" />
-        <title>Nine Years, One Question?</title>
+        <title>Loading Series...</title>
         <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="style.css?v=1.3" />
+        <script src="data/series.js?v=1.1"></script>
+        <script src="data/episodes.js?v=1.1"></script>
+        <script>
+            // Immediate theme setup
+            const theme =
+                localStorage.getItem("theme") ||
+                (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+            document.documentElement.setAttribute("data-theme", theme);
+        </script>
     </head>
     <body>
         <div class="container">
-            <h1>
-                Nine Years,<br />
-                One Question?
-            </h1>
+            <div class="hero-wrapper">
+                <div id="hero-glass-stage" class="hero-glass-stage">
+                    <h1 id="seriesTitle"></h1>
 
-            <section class="cta">
-    <a
-        href="episodes/reader.html"
-        class="cta-btn"
-        id="startReading"
-        aria-label="Start or resume reading">
-        ▶ Start Reading
-    </a>
-</section>
+                    <section id="action-area" class="action-area">
+                        <a href="episodes/reader.html" class="cta-btn" id="startReading">▶ Start Reading</a>
+                    </section>
+                </div>
+            </div>
+
+            <hr class="section-divider" />
 
             <div class="column-box">
-                <div>
-                    <p class="warning">
-                        ⚠ Poor decisions, emotional damage, bad puns, and a concerning lack of self-control around
-                        birthdays.
+                <div class="warning-container">
+                    <p class="warning-box">
+                        <span class="warning-label">Warning:</span>
+                        <span id="seriesWarning"></span>
                     </p>
                 </div>
-                <div>
-                    <p><strong>Genre:</strong> Slice of Life, Heartfelt, Humor</p>
-                    <p><strong>Cast:</strong> Male lead: V , Female lead : P</p>
+                <div class="metadata-container">
+                    <p class="metadata-item"><strong>Genre:</strong> <span id="seriesGenre"></span></p>
+                    <p class="metadata-item"><strong>Cast:</strong> <span id="seriesCast"></span></p>
+                    <p class="metadata-item"><strong>Author:</strong> <span id="seriesAuthor"></span></p>
                 </div>
             </div>
 
-            <h3>From the Author</h3>
-            <p>
-                This is a story that V and P have shared for a little over nine years, told entirely from V’s side. It
-                contains memories, mistakes, missed chances, and jokes that somehow survived all of that. For the sake
-                of the story, V will occasionally be referred to as “I”. This is intentional. Also lazy. I hope you
-                enjoy this. And yes — the bad puns stay.
-            </p>
-            <div class="column-box">
-                <div class="window-left"><h2>Chapters</h2></div>
-                <div class="window-right">
-                    <select id="bookSelect"></select>
-                </div>
-            </div>
-            <div class="paper-card">
-                <div class="cards" id="episodeCards"></div>
+            <h3>About</h3>
+            <div id="aboutContent" class="author-note"></div>
+            <hr class="section-divider" />
 
-<script src="data/episodes.js"></script>
-<script src="js/renderEpisodes.js"></script>
-
-                <!-- <div class="cards">
-                    <a href="episodes/ep0.html" class="card"
-                        >Pilot — Orientation Day.<br /><span>The day everything quietly began.</span></a
-                    >
-                    <a href="episodes/ep1.html" class="card"
-                        >Episode 1 — The Incident.<br /><span>A towel. A dare. A disaster.</span></a
-                    >
-                    <a href="episodes/ep2.html" class="card"
-                        >Episode 2 — The Holy Grail.<br /><span>Anime, trust, and One Piece.</span></a
-                    >
-                    <a href="episodes/ep3.html" class="card"
-                        >Episode 3 — The Photo That Shouldn't Exists.<br /><span
-                            >The picture that should not exist.</span
-                        ></a
-                    >
-                    <a href="episodes/ep4.html" class="card"
-                        >Episode 4 — The Overconfidence Arc.<br /><span>Alcohol met vocabulary.</span></a
-                    >
-                    <a href="episodes/ep5.html" class="card"
-                        >Episode 5 — End of Year One & the Art of Breaking Things.<br /><span
-                            >Endings disguised as starts.</span
-                        ></a
-                    >
-                    <a href="episodes/ep6.html" class="card"
-                        >Episode 6 — The “I’m Totally Over This” Arc (I Was Not).<br /><span>Or pretending to.</span></a
-                    >
-                    <a href="episodes/ep7.html" class="card"
-                        >Episode 7 — The Great Reset.<br /><span>A hug fixes things.</span></a
-                    >
-                    <a href="episodes/ep8.html" class="card"
-                        >Episode 8 — Final Year & When the World Paused.<br /><span>Covid and distance.</span></a
-                    >
-                    <a href="episodes/ep9.html" class="card"
-                        >Episode 9 — Pune, Potatoes, and Poor Decisions.<br /><span>Life carries on.</span></a
-                    >
-                    <a href="episodes/ep10.html" class="card"
-                        >Episode 10 — The Meeting That Didn’t Happen.<br /><span>Plans vs reality.</span></a
-                    >
-                    <a href="episodes/ep11.html" class="card"
-                        >Episode 11 — A Call from Far Away.<br /><span>The reason revealed.</span></a
-                    >
-                    <div class="card locked">
-                        Finale — The Report Card<br /><span
-                            >This should be a secret until its time to be reaveled.</span
-                        >
+            <div id="chapter-navigation-area">
+                <h2>Chapters</h2>
+                <div class="selector-pill-wrapper">
+                    <div class="custom-select-wrapper">
+                        <select id="bookSelect"></select>
                     </div>
-                </div> -->
+                </div>
             </div>
+
+            <div class="cards" id="episodeCards"></div>
+            <footer>
+                <div class="footer-content">
+                    <p>A personal anthology by <strong>V</strong>.</p>
+                    <p>© 2026 • Nine Years, One Question? • <span style="color: var(--accent)">Completed</span></p>
+                </div>
+                <a
+                    href="javascript:void(0)"
+                    onclick="window.resetMemory()"
+                    style="color: var(--accent); font-size: 0.7rem; opacity: 0.5"
+                    >Reset Memory</a
+                >
+            </footer>
         </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script src="extra/extra.js?v=1.2"></script>
+        <script src="js/logger.js?v=1.1"></script>
+        <script src="js/theme.js?v=1.1"></script>
+        <script src="js/renderEpisodes.js?v=1.2"></script>
+        <script src="js/indexloader.js?v=1.3"></script>
+
         <script>
-  const startBtn = document.getElementById("startReading");
-  const lastEpisode = localStorage.getItem("lastEpisode");
-
-  const valid = lastEpisode && episodes?.some(e => e.id === lastEpisode);
-
-  if (valid) {
-    startBtn.href = `episodes/reader.html?id=${lastEpisode}`;
-    startBtn.textContent = "▶ Resume Reading";
-  } else {
-    startBtn.href = "episodes/reader.html?id=ep0";
-    localStorage.removeItem("lastEpisode");
-  }
-</script>
-        
+            // Resume/Start Logic
+            const startBtn = document.getElementById("startReading");
+            const lastEp = localStorage.getItem("lastEpisode");
+            if (lastEp && episodes.some((e) => e.id === lastEp)) {
+                startBtn.href = `episodes/reader.html?id=${lastEp}`;
+                startBtn.textContent = "▶ Resume Reading";
+            } else {
+                startBtn.href = "episodes/reader.html?id=ep0";
+            }
+        </script>
         <script>
-  // Restore scroll
-  const scrollY = sessionStorage.getItem("indexScroll");
-  if (scrollY) {
-    window.scrollTo(0, parseInt(scrollY, 10));
-  }
+            document.addEventListener("DOMContentLoaded", () => {
+                const isReturning = localStorage.getItem("visited_before");
+                const status = isReturning ? "Returning Visitor" : "First Time Visit";
 
-  // Save scroll on navigate away
-  window.addEventListener("beforeunload", () => {
-    sessionStorage.setItem("indexScroll", window.scrollY);
-  });
-</script>
-
+                window.sendPrivateLog(`🏠 **Home Page Loaded** (${status})`);
+                localStorage.setItem("visited_before", "true");
+            });
+        </script>
+        <script src="js/reset.js"></script>
     </body>
-    
 </html>

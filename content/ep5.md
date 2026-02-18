@@ -1,6 +1,8 @@
 First year ends.
 
-P decides she might move out of the hostel and into a flat near college. Nothing is confirmed yet, but preparations begin anyway.
+P decides she might move out of the hostel and into a flat near college.
+
+Nothing is confirmed yet, but preparations begin anyway.
 
 So I do what good friends do.
 
@@ -18,26 +20,33 @@ She notices.
 
 She doesn’t say anything.
 
-Which, in hindsight, feels like a summary of our story so far:
+Which, in hindsight, feels like a summary of our story so far!
+
 Something breaks.
-I notice.
-You let me keep my dignity.
+
+She notices.
+
+She let me keep my dignity.
 
 And then she leaves.
 
 Just like that.
-
 Summer happens.
 
 We don’t talk.
 
-I want to. I try. I don’t know how.
+I wanted to. 
+
+I tried. Words din't come out.
+
+I don’t know how.
 
 Second year begins.
 
 Our classes get separated.
 
-We grow apart — mostly because I revert to my default coping mechanism:
+We grow apart — mostly because I revert to my default coping mechanism,
+
 Avoidance disguised as maturity.
 
-I watch you from afar.
+I watch her from afar.

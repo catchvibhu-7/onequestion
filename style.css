@@ -1,564 +1,939 @@
 /* ================================
-   CSS Variables & Reset
+   1. Variables & Theme Engine
    ================================ */
-
-/* SVG color filter for gold (#FBB03B) */
-.svg-gold {
-    filter: brightness(0) saturate(100%) invert(72%) sepia(98%) saturate(1200%) hue-rotate(354deg) brightness(101%) contrast(96%);
-}
-
-/* SVG color filter for phoenix-orange (#d89333) */
-.svg-orange {
-    filter: brightness(0) saturate(100%) invert(58%) sepia(89%) saturate(400%) hue-rotate(360deg) brightness(95%) contrast(90%);
-}
-
 :root {
-    /* Light Theme Colors */
-    --bg-primary: #f5f5f5;
-    --bg-secondary: #ffffff;
-    --bg-tertiary: #fafafa;
-
-    /* Phoenix Brand Colors */
-    --phoenix-orange: #d89333;
-    --phoenix-gold: #ffc641;
-    --phoenix-yellow: #FFD700;
-
-    /* Text Colors */
-    --text-primary: #1a1a1a;
-    --text-secondary: #4a4a4a;
-    --text-tertiary: #6a6a6a;
-    --text-muted: #9a9a9a;
-
-    /* Paper Color Palette (for cards) */
-    --paper-white: #FFFFFF;
-    --paper-border: #e0e0e0;
-
-    /* Accent Colors */
-    --success-green: #85a300;
-    --hint-blue: #6c9ef8;
-
-    /* Fonts */
-    --font-brand: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-handwritten: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-body: 'Lora', Georgia, 'Times New Roman', serif;
-
-    /* Shadows */
-    --shadow-paper: 0 2px 8px rgba(0, 0, 0, 0.08),
-                     0 1px 4px rgba(0, 0, 0, 0.04);
-    --shadow-lifted: 0 4px 12px rgba(0, 0, 0, 0.1),
-                      0 2px 6px rgba(0, 0, 0, 0.06);
+    --font-ui: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    --font-serif: "EB Garamond", Georgia, serif;
+    --bg-primary: #fdfaf6;
+    --bg-card: #f3eee6;
+    --text-main: #2c2926;
+    --text-muted: #736d67;
+    --accent: #b87a24;
+    --border: #e8e2d9;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --accent-glow: rgba(184, 122, 36, 0.3);
+    --finale-gold: #a6705d; /* Standard breathable gold */
 }
 
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
+[data-theme="dark"] {
+    --bg-primary: #0e0e0e;
+    --bg-card: rgba(255, 255, 255, 0.06);
+    --text-main: #f4f4f4;
+    --text-muted: #aaa;
+    --border: #333;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --accent: #d4a76a; /* Softer Champagne for Dark Mode */
+    --accent-glow: rgba(212, 167, 106, 0.4);
+    --finale-gold: #a6705d;
+}
 
-/*body {
-    margin: 0;
-    background: #0e0e0e;
-    color: #f4f4f4;
-    font-family: Inter;
-    font-family: var(--font-body);
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.7;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow-x: hidden;
-}*/
+/* ================================
+   2. Base, Font Scaling & Animations
+   =============================== */
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
 body {
     margin: 0;
-    background: #0e0e0e;
-    color: #f4f4f4;
-    font-family: Inter;
-} 
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 40px;
-}
-h1,
-h2,
-h3 {
-    font-family: "Playfair Display", serif;
-}
-.cards {
-    margin-top: 30px;
-}
-.card {
-    display: block;
-    background: rgba(255, 255, 255, 0.06);
-    padding: 20px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    color: #f4f4f4;
-    text-decoration: none;
-}
-.card span {
-    color: #d6b27c;
-    font-size: 0.9rem;
-}
-.card:hover {
-    background: rgba(255, 255, 255, 0.12);
-}
-.locked {
-    opacity: 0.5;
-    pointer-events: none;
-}
-.warning {
-    opacity: 0.8;
-}
-.nav {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 40px;
-}
-button {
-    background: #e6c28b;
-    border: none;
-    padding: 12px 24px;
-    cursor: pointer;
-    border-radius: 8px;
-    color: #f4f4f4;
-}
-button:hover {
-    background: var(--phoenix-gold);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(216, 147, 51, 0.4);
-}
-button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(216, 147, 51, 0.3);
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: var(--font-ui);
+    line-height: 1.6;
+    transition: background 0.3s ease;
 }
 
-button i {
-    font-size: 1rem;
-    transition: transform 0.3s ease;
-}
-
-button:hover i {
-    transform: translateX(4px);
-}
-.cta {
-  text-align: left;
-  margin-top: 2rem;
-}
-
-.cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 15px;
-  font-size: 16px;
-  font-weight: 600;
-  background-color: #e6c28b;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: transform 0.15s ease, background-color 0.15s ease;
-}
-
-.cta-btn:hover {
-  background: var(--phoenix-gold);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(216, 147, 51, 0.4);
-}
-
-.cta-btn:active {
-  transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(216, 147, 51, 0.3);
-}
-.blur {
-    filter: blur(8px);
-    transition: filter 1.5s ease;
-    cursor: pointer;
-}
-.blur:hover {
-    background: rgba(255, 255, 255, 0.12);
-}
-.revealed {
-    filter: blur(0);
-}
-.reveal-btn {
-    margin-top: 30px;
-}
-.post-credit {
-    margin-top: 60px;
-    opacity: 0.7;
-    font-style: italic;
-}
-/* ================================
-   Paper card
-   ================================ */
-.game-container {
-    flex: 1;
-    padding: 20px;
+/* Font Scaling Logic
+   We scale the main content and about text fully, 
+   but we give the metadata a "reduced" scaling factor to keep it elegant.
+*/
+.metadata-container {
+    flex: 0 0 45%; 
+    text-align: right;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    position: relative;
-    z-index: 10;
-}
-
-.paper-card {
-    background: #000000 !important;
-    max-width: 720px;
-    width: 100%;
-    padding: 48px;
-    position: relative;
-    box-shadow: var(--shadow-paper);
-    margin-bottom: 24px;
-
-    /* Torn paper edges - organic and irregular */
-    clip-path: polygon(
-        0% 1.5%,
-        1% 0.5%,
-        2% 1.8%,
-        3% 0.8%,
-        4% 1.2%,
-        5% 0.3%,
-        6% 1.5%,
-        7% 0.9%,
-        8% 1.7%,
-        9% 0.6%,
-        10% 1.3%,
-        12% 0.4%,
-        14% 1.6%,
-        16% 0.7%,
-        18% 1.4%,
-        20% 1%,
-        23% 0.5%,
-        26% 1.2%,
-        30% 0.8%,
-        35% 1.5%,
-        40% 0.6%,
-        45% 1.1%,
-        50% 0.9%,
-        55% 1.3%,
-        60% 0.7%,
-        65% 1.6%,
-        70% 0.4%,
-        74% 1.2%,
-        77% 0.8%,
-        80% 1.4%,
-        82% 0.9%,
-        84% 1.1%,
-        86% 0.5%,
-        88% 1.5%,
-        90% 0.7%,
-        91% 1.3%,
-        92% 0.6%,
-        93% 1.2%,
-        94% 0.8%,
-        95% 1.4%,
-        96% 0.9%,
-        97% 1.1%,
-        98% 0.5%,
-        99% 1.2%,
-        100% 0.8%,
-
-        100% 2%,
-        99.5% 4%,
-        99.8% 6%,
-        99.3% 8%,
-        99.7% 10%,
-        99.2% 12%,
-        99.6% 15%,
-        99.4% 18%,
-        99.8% 22%,
-        99.1% 26%,
-        99.5% 30%,
-        99.3% 35%,
-        99.7% 40%,
-        99.4% 45%,
-        99.6% 50%,
-        99.2% 55%,
-        99.8% 60%,
-        99.3% 65%,
-        99.6% 70%,
-        99.4% 74%,
-        99.7% 78%,
-        99.3% 82%,
-        99.6% 86%,
-        99.2% 90%,
-        99.5% 93%,
-        99.7% 96%,
-        99.4% 98%,
-        99.8% 99%,
-        99.2% 99.5%,
-        99.6% 100%,
-
-        99% 99.5%,
-        97% 99.8%,
-        95% 99.2%,
-        93% 99.6%,
-        91% 99.3%,
-        89% 99.7%,
-        87% 99.4%,
-        85% 99.8%,
-        82% 99.2%,
-        79% 99.5%,
-        76% 99.3%,
-        73% 99.7%,
-        69% 99.4%,
-        65% 99.6%,
-        60% 99.2%,
-        55% 99.8%,
-        50% 99.1%,
-        45% 99.5%,
-        40% 99.3%,
-        35% 99.7%,
-        30% 99.4%,
-        26% 99.6%,
-        22% 99.2%,
-        18% 99.8%,
-        15% 99.3%,
-        12% 99.6%,
-        10% 99.4%,
-        8% 99.7%,
-        6% 99.3%,
-        4% 99.6%,
-        2% 99.2%,
-        1% 99.5%,
-        0.5% 99.8%,
-
-        0.8% 98%,
-        0.3% 96%,
-        0.7% 94%,
-        0.4% 92%,
-        0.9% 90%,
-        0.2% 87%,
-        0.6% 84%,
-        0.4% 81%,
-        0.8% 78%,
-        0.3% 74%,
-        0.7% 70%,
-        0.5% 66%,
-        0.9% 62%,
-        0.2% 58%,
-        0.6% 54%,
-        0.4% 50%,
-        0.8% 46%,
-        0.3% 42%,
-        0.7% 38%,
-        0.5% 34%,
-        0.9% 30%,
-        0.2% 26%,
-        0.6% 22%,
-        0.4% 18%,
-        0.8% 15%,
-        0.3% 12%,
-        0.7% 9%,
-        0.5% 6%,
-        0.9% 4%,
-        0.3% 2%
-    );
-}
-
-.paper-card.section {
-    display: none;
-}
-
-.paper-card.section.active {
-    display: block;
-}
-/* ================================
-   Get Started Button
-   ================================ */
-
-.get-started-container {
-    text-align: center;
-    margin-top: 32px;
-}
-
-.get-started-button {
-    background: #e6c28b; /*var(--phoenix-orange);*/
-    color: white;
-    border: none;
-    padding: 16px 32px;
-    border-radius: 8px;
-    font-family: var(--font-brand);
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
+    justify-content: center; /* Spreads metadata to match warning height */
     gap: 12px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(216, 147, 51, 0.3);
+}
+.metadata-item {
+    font-size: 0.95rem;
+    margin-bottom: 0 !important; /* Gap is now handled by container */
+}
+/* --- Standard --- */
+body[data-size="standard"] .content,
+body[data-size="standard"] #aboutContent { font-size: 1.15rem; }
+body[data-size="standard"] .metadata-item { font-size: 0.95rem; }
+
+/* --- Large --- */
+body[data-size="large"] .content,
+body[data-size="large"] #aboutContent { font-size: 1.3rem; }
+body[data-size="large"] .metadata-item { font-size: 1.05rem; }
+
+/* --- Extra Large --- */
+body[data-size="xl"] .content,
+body[data-size="xl"] #aboutContent { font-size: 1.45rem; }
+body[data-size="xl"] .metadata-item { font-size: 1.15rem; }
+
+/* Always keep the labels (GENRE, etc) tiny and uppercase */
+.metadata-item strong {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.05rem;
 }
 
-.get-started-button:hover {
-    background: var(--phoenix-gold);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(216, 147, 51, 0.4);
+.container {
+    max-width: 700px;
+    margin: auto;
+    padding: 30px 20px;
 }
 
-.get-started-button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(216, 147, 51, 0.3);
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.get-started-button i {
-    font-size: 1rem;
-    transition: transform 0.3s ease;
+@keyframes shine { 
+    to { background-position: 200% center; } 
 }
 
-.get-started-button:hover i {
-    transform: translateX(4px);
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0.8; }
+    100% { transform: translateY(110vh) rotate(720deg) translateX(100px); opacity: 0; }
 }
 /* ================================
-   Get Started Button
+   3. Hero Card (Glassmorphism & Blur)
    ================================ */
-.paste-button {
-  position: relative;
-  display: block;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.hero-wrapper {
+    margin-top: 40px;
+    margin-bottom: 0;
+    position: relative;
+    width: 100%;
 }
 
-.button1 {
-  background-color: #4CAF50;
-  color: #212121;
-  padding: 10px 15px;
-  font-size: 15px;
-  font-weight: bold;
-  border: 2px solid transparent;
-  border-radius: 15px;
-  cursor: pointer;
+.hero-glass-stage {
+    position: relative;
+    padding: 0;
+    border-radius: 12px;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    z-index: 1;
+    background-size: cover;
+    background-position: center 20%;
+    background-repeat: no-repeat;
+    background-color: var(--bg-card);
+    transition: background-image 0.5s ease-in-out, border-color 0.3s ease;
 }
 
-.dropdown-content {
-  display: none;
-  font-size: 13px;
-  position: absolute;
-  z-index: 1;
-  min-width: 200px;
-  background-color: #212121;
-  border: 2px solid #4CAF50;
-  border-radius: 0px 15px 15px 15px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+/* The Gradual Blur Mask */
+.hero-glass-stage::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    /* Fade blur: Clear top 40% -> Full blur bottom */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 40%, black 100%);
+    mask-image: linear-gradient(to bottom, transparent 40%, black 100%);
+    z-index: 2;
+    pointer-events: none;
 }
 
-.dropdown-content a {
-  color: #4CAF50;
-  padding: 8px 10px;
-  text-decoration: none;
-  display: block;
-  transition: 0.1s;
+#seriesTitle, 
+.action-area {
+    position: relative;
+    z-index: 3;
+    margin: 25px;
 }
 
-.dropdown-content a:hover {
-  background-color: #4CAF50;
-  color: #212121;
+#seriesTitle {
+    margin-bottom: 10px;
+    font-family: var(--font-serif);
+    line-height: 1.2;
+    
+    /* FORCE WHITE TEXT: This ensures it works on dark gradients in both themes */
+    color: #ffffff !important; 
+    
+    /* TEXT SHADOW: Adds a subtle 'outline' so it pops against light image areas */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.2);
+    
+    /* Ensure it scales nicely on small screens */
+    font-size: clamp(1.8rem, 5vw, 2.5rem); 
 }
 
-.dropdown-content a:focus {
-  background-color: #212121;
-  color: #4CAF50;
+/* Light Mode specific Hero Tweak */
+[data-theme="light"] .hero-glass-stage::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%; /* Only covers the bottom half where the text sits */
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4));
+    z-index: 2; /* Sits behind text (z-index 3) but above image */
+    pointer-events: none;
 }
 
-.dropdown-content #top:hover {
-  border-radius: 0px 13px 0px 0px;
+.action-area {
+    margin-top: 0;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.dropdown-content #bottom:hover {
-  border-radius: 0px 0px 13px 13px;
+/* ================================
+   4. Layout Components & Spacing
+   ================================ */
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-color: var(--text-main);
+    opacity: 0.15;
+    margin-top: 15px;
+    width: 100%;
+    margin-bottom: 25px; /* Increase this slightly if About feels too cramped */
 }
 
-.paste-button:hover button {
-  border-radius: 15px 15px 0px 0px;
-}
+[data-theme="dark"] .section-divider { opacity: 0.25; }
 
-.paste-button:hover .dropdown-content {
-  display: block;
-}
-
-
-
-.window-controls {
-  display: flex;
-  align-items: center;
-  margin-right: 16px;
-}
-
-.window-right {
- 
-  align-items: right;
-  margin-right: 16px;
-}
-.window-left {
-  
-  align-items: left;
-  margin-left: 16px;
+.card[onclick*="finale"] .ep-number svg {
+    /* A slightly brighter Rose Bronze for dark mode visibility */
+    color: #a6705d !important; 
+    filter: drop-shadow(0 0 6px rgba(207, 156, 138, 0.5));
+    opacity: 1 !important;
 }
 
 .column-box {
     display: flex;
-  flex-direction: row; /* Arranges items horizontally */
     justify-content: space-between;
-  align-items: center; /* Equivalent to alignVertical: "MIDDLE" */
-  gap: 20px; /* Controls spacing between items */
-  width: 100%;
+    /* Changed from center to flex-start to align everything to the top */
+    align-items: center;
+    gap: 30px; /* Increased gap for better breathing room between sections */
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+.window-left { flex: 1; }
+.window-left h2 { margin-top: 0; line-height: 1.2; font-family: var(--font-serif); }
+.window-right {
+    flex: 0 0 45%; 
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Spreads metadata items out to fill height */
+    padding: 5px 0;
+    gap: 12px
+}
+.metadata-item {
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 8px;
+    opacity: 0.9;
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+.metadata-item strong {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.05rem;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+.metadata-item:last-child {
+    margin-bottom: 0;
+    
+    
+}
+.metadata-item svg {
+    width: 12px;
+    height: 12px;
+    opacity: 0.7;
+}
+
+/* Dedicated Fix for Chapter Header & Book Selector */
+#chapter-navigation-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Forces perfect vertical baseline */
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+#chapter-navigation-area h2 {
+    margin: 0;
+    line-height: 1; /* Prevents text descent from pushing the box */
+}
+
+/* Ensure the selector pill stays compact */
+.selector-pill-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+/* ================================
+   5. Typography & Content
+   ================================ */
+h3 { font-family: var(--font-serif); }
+
+.subtitle {
+    color: var(--accent);
+    font-style: italic;
+    margin-top: -10px;
+    margin-bottom: 2rem;
+}
+
+/* Drop-Cap Logic */
+.content > p:first-of-type {
+    overflow: hidden;
+    line-height: 1.6;
+}
+
+.content > p:first-of-type::first-letter {
+    float: left;
+    font-family: var(--font-serif);
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 3.5rem;
+    line-height: 0.7;
+    margin-top: 0.12em;
+    margin-right: 0.15em;
+    padding: 0 4px 0 2px;
+}
+
+.author-note {
+    position: relative;
+    max-height: 120px;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.author-note.expanded { max-height: 1200px; }
+.author-note::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 60px;
+    background: linear-gradient(transparent, var(--bg-primary));
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+.author-note.expanded::after { opacity: 0; }
+
+.read-more-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    margin-top: 12px;
+    font-size: 0.75rem;
+    color: var(--accent);
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ================================
+   6. Cards & Episodes
+   ================================ */
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 2rem;
+}
+
+.card {
+    background: var(--bg-card);
+    padding: 1.25rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    background: var(--bg-primary);
+}
+
+.card-content { display: flex; align-items: center; gap: 20px; }
+
+.ep-number {
+    font-size: 1.4rem;
+    font-weight: 700;
+    opacity: 0.15;
+    min-width: 30px;
+}
+
+.ep-title { font-weight: 600; font-size: 1.05rem; }
+.ep-subtitle { color: var(--accent); font-size: 0.85rem; }
+
+/* Crown Glow for Finale */
+/* Muted Crown for Finale Card */
+.card[onclick*="finale"] .ep-number svg {
+    /* Use your chosen Rose Bronze #a6705d */
+    color: #a6705d !important; 
+    /* Force full visibility */
+    opacity: 1 !important; 
+    /* Soft bloom effect to make it look 'special' */
+    filter: drop-shadow(0 0 4px rgba(166, 112, 93, 0.4));
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for extra polish */
+.card[onclick*="finale"]:hover .ep-number svg {
+    transform: scale(1.2) rotate(5deg);
+    filter: drop-shadow(0 0 8px rgba(166, 112, 93, 0.6));
+}
+
+.locked { opacity: 0.4; filter: grayscale(1); pointer-events: none; }
+
+/* ================================
+   7. Buttons & Badges
+   ================================ */
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.complete-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 6px 12px;
+    border-radius: 20px;
+    
+    /* Force Rose Bronze #a6705d for both themes */
+    color: #a6705d;
+    border: 1px solid rgba(166, 112, 93, 0.4); 
+    background: rgba(166, 112, 93, 0.05);
+}
+
+[data-theme="dark"] .complete-badge {
+    /* Ensures the badge pops against the dark #0e0e0e background */
+    color: #cf9c8a; /* A slightly lighter version of your rose bronze for legibility */
+    border: 1px solid rgba(207, 156, 138, 0.5);
+    background: rgba(207, 156, 138, 0.1);
+}
+
+/* ================================
+   8. Reader Specific
+   ================================ */
+.reader { animation: fadeIn 0.8s ease-out; }
+
+.reader-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+}
+
+.content img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 2.5rem auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
 }
 
 .blur-block {
-  margin: 1.5rem 0;
-  text-align: center;
+    margin: 2.5rem 0;
+    cursor: pointer;
+    position: relative;
+    background: rgba(128, 128, 128, 0.05);
+    padding: 12px;
+    border-radius: 8px;
 }
 
-.blur-block .blurred {
-  filter: blur(10px);
-  transition: filter 0.4s ease;
+.blur-block .blurred { filter: blur(20px); transition: filter 1s ease; user-select: none; }
+.blur-block::after {
+    content: "Tap to reveal";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--accent);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
 }
 
-.blur-block[data-revealed="true"] .blurred {
-  filter: blur(0);
+.blur-block[data-revealed="true"] .blurred { filter: blur(0); user-select: text; }
+.blur-block[data-revealed="true"]::after { opacity: 0; }
+
+.warning-container {
+    flex: 0 0 55%; /* Forces the warning text to wrap and fill height */
+}
+.warning-box {
+    background: rgba(216, 147, 51, 0.08);
+    border-left: 3px solid var(--accent);
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    line-height: 1.6;
+    height: 100%; /* Fill the 55% container */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.reveal-btn {
-  margin-top: 10px;
-  padding: 6px 14px;
-  font-size: 14px;
-  cursor: pointer;
+/* ================================
+   9. Custom Select
+   ================================ */
+.custom-select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+#bookSelect {
+    appearance: none;
+    background: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--border);
+    padding: 8px 32px 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    outline: none;
+}
+.custom-select-wrapper::after {
+    content: "▾";
+    position: absolute;
+    right: 12px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    pointer-events: none;
 }
 
-.reader-nav {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 2.5rem;
+/* ================================
+   10. Special Modes & Extras
+   ================================ */
+/* --- Finale Override (Specific to the End) --- */
+.finale-mode {
+    --accent: #a6705d !important; /* Forces Rose Bronze */
 }
 
-.cta-btn.secondary {
-  background: var(--phoenix-gold);
-  color: #111;
-  border: 1px solid #111;
+/* Update this in Section 9 or 12 of style.css */
+/* Update this in Section 9 or 12 of style.css */
+/* Reverted Finale Title - Back to the original shimmer */
+.finale-mode #title {
+    background: linear-gradient(
+        to right, 
+        #a6705d 20%, 
+        #cf9c8a 50%, 
+        #a6705d 80%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* No white border here, just a soft shimmer */
+    -webkit-text-stroke: 0;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    
+    animation: shine 4s infinite linear;
+    font-weight: 700;
+}
+#seriesTitle.shimmer-active {
+    /* 1. Core Color: Solid Rose Pink */
+    color: #a6705d !important;
+    
+    /* 2. Reset Shimmer Logic: Remove gradients/clipping */
+    background: transparent !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important; /* Standard property for compatibility */
+    -webkit-text-fill-color: #a6705d !important;
+
+    /* 3. The Stencil Border: 1.5px White Stroke */
+    -webkit-text-stroke: 1.5px #ffffff;
+    
+    /* 4. Readability: High-contrast shadow to pull text from background */
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
+    
+    /* 5. Typography */
+    font-weight: 800;
+    text-shadow: none; 
+    transition: all 1s ease-in-out;
+}
+.finale-mode #content p:last-of-type {
+    color: var(--accent);
+    font-style: italic;
+    font-weight: 600;
 }
 
-.cta-btn.disabled {
-  opacity: 0.4;
-  pointer-events: none;
+[data-theme="dark"].finale-mode {
+    --accent: #cf9c8a !important; /* Forces Rose Bronze Shimmer */
 }
+
+/* Update this specifically for the Home Page "Answer" title */
+
+
+.petal {
+    position: fixed;
+    top: -10%; z-index: 9999;
+    pointer-events: none;
+    width: 15px; height: 20px;
+    background: #ffb7c5;
+    border-radius: 150% 0 150% 0;
+    animation: fall linear forwards;
+}
+
+.control-btn {
+    width: 44px; height: 44px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-main);
+    box-shadow: var(--shadow);
+    transition: all 0.2s;
+}
+
+.controls-container {
+    position: fixed;
+    bottom: 20px; right: 20px;
+    display: flex; flex-direction: column; gap: 10px;
+    z-index: 9999;
+}
+
+footer {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ================================
+   11. Mobile Optimization
+   ================================ */
+@media (max-width: 768px) {
+    body { padding-left: 10px; padding-right: 10px; }
+    
+    .hero-wrapper, .section-divider {
+        margin-left: -10px;
+        margin-right: -10px;
+        width: calc(100% + 20px);
+        border-radius: 0;
+    }
+
+    .hero-glass-stage {
+        min-height: 300px;
+        border-left: none;
+        border-right: none;
+    }
+
+    #seriesTitle, .action-area {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .column-box {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+    
+    .warning-box, 
+    .window-right {
+        flex: 0 0 100%; /* Reset to full width on mobile */
+        text-align: left; /* Metadata looks better left-aligned on mobile */
+    }
+}
+
+/* ================================
+   8. Reader Components (Breadcrumb Fix)
+   ================================ */
 .breadcrumbs {
-  font-family: Inter, sans-serif;
-  font-size: 0.85rem;
-  margin-bottom: 1.2rem;
-  color: #666;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
 }
 
-.breadcrumbs a {
-  color: inherit;
-  text-decoration: none;
+/* Force the Home link to stay gold/accent */
+.breadcrumbs a, 
+.breadcrumbs a:visited {
+    color: var(--accent) !important;
+    text-decoration: none;
+    transition: opacity 0.2;
+}
+footer .footer-links a {
+    color: var(--accent) !important;
+    transition: opacity 0.2s;
 }
 
 .breadcrumbs a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
+    opacity: 0.8;
 }
 
-.breadcrumbs span {
-  margin: 0 0.3rem;
+/* style.css Section 13 Fix */
+.author-note {
+    /* ... existing ... */
+    margin-bottom: 10px;
 }
+
+.read-more-btn {
+    /* Ensures the button stays below the scaled text and above the divider */
+    padding-bottom: 15px;
+    z-index: 10;
+}
+
+/* Specific styling for the big question */
+.proposal-text {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: left; /* Explicitly left-aligned */
+    margin: 2rem 0;
+    line-height: 1.4;
+    
+    /* Rose Bronze Shimmer Effect */
+    background: linear-gradient(to right, #a6705d 20%, #cf9c8a 50%, #a6705d 80%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s infinite linear; 
+}
+
+/* Response blocks are hidden until unblurred by handleDecision */
+.response-block {
+    display: none;
+    margin-top: 20px;
+    animation: fadeIn 1s ease-out forwards;
+}
+.response-block.revealed {
+    display: block;
+}
+
+/* Confetti styling */
+.confetti {
+    position: fixed;
+    top: -10px;
+    width: 8px;
+    height: 8px;
+    z-index: 10000;
+    animation: fall linear forwards;
+}
+
+/* Decision Buttons */
+.decision-buttons {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+.opt-btn {
+    padding: 10px 25px;
+    border-radius: 20px;
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    cursor: pointer;
+    font-weight: 600;
+    font-family: var(--font-ui);
+}
+.opt-btn:hover {
+    background: var(--accent);
+    color: white;
+}
+
+#fireworks-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 99999;
+}
+
+.firework-heart {
+    position: absolute;
+    width: 30px; /* Base size */
+    height: 30px;
+    pointer-events: none;
+    z-index: 100000;
+    
+    /* Using a vector heart in your exact Rose Bronze theme color */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a6705d'><path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    /* High-contrast glow for Light Mode */
+    filter: drop-shadow(0 0 8px #cf9c8a) drop-shadow(0 0 15px rgba(166, 112, 93, 0.6));
+    
+    animation: smooth-heart-burst 2.5s cubic-bezier(0.1, 0, 0.3, 1) forwards;
+}
+
+@keyframes smooth-heart-burst {
+    0% { 
+        transform: translate(-50%, -50%) scale(0) rotate(var(--init-rot)); 
+        opacity: 0; 
+    }
+    10% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2) rotate(var(--init-rot));
+    }
+    100% { 
+        /* GPU-accelerated scaling for silk-smooth motion */
+        transform: translate(-50%, -50%) scale(12) rotate(calc(var(--init-rot) + 20deg)); 
+        opacity: 0;
+    }
+}
+
+@keyframes burst-fade {
+    0% { transform: scale(0.1); opacity: 1; }
+    100% { transform: scale(10); opacity: 0; }
+    
+}
+
+/* Add this to the bottom of style.css */
+.title-heart {
+    width: 0.8em;        /* Scales perfectly with the font size */
+    height: 0.8em;
+    fill: #a6705d;       /* Your signature Rose Bronze */
+    vertical-align: middle;
+    margin-left: 2px;
+    filter: drop-shadow(0 0 8px rgba(166, 112, 93, 0.6));
+    animation: heartBeat 2s infinite; /* Adds a subtle 'pulse' */
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.1); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.1); }
+    70% { transform: scale(1); }
+}
+
+/* Update or add to style.css */
+/* Special Styling for the Broken Heart */
+.title-heart.broken {
+    fill: #a6705d; /* Still using Rose Bronze for theme consistency */
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+    
+    /* We use a slower, more irregular animation than the heartbeat */
+    animation: fragile-shiver 4s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes fragile-shiver {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    30% { transform: scale(1.02) rotate(-1.5deg); }
+    35% { transform: scale(1) rotate(1.5deg); }
+    40% { transform: scale(1.02) rotate(-1deg); }
+    45% { transform: scale(1) rotate(0deg); }
+}
+
+/* Message Section Styling */
+.message-area {
+    margin-top: 40px;
+    padding: 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    animation: fadeIn 1s ease-out;
+}
+
+.message-input {
+    width: 100%;
+    min-height: 100px;
+    background: transparent;
+    border: 1px dashed var(--accent);
+    color: var(--text);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    resize: vertical;
+    font-family: inherit;
+}
+
+/* The Mail Animation */
+.flying-mail {
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    z-index: 2000;
+    pointer-events: none;
+    animation: flyAway 1.5s forwards ease-in;
+}
+
+@keyframes flyAway {
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    30% { opacity: 1; transform: translate(-50%, -80%) rotate(15deg) scale(1.2); }
+    100% { opacity: 0; transform: translate(150vw, -200vh) rotate(45deg) scale(0.5); }
+}
+
+@keyframes fadeOutShrink {
+    to { opacity: 0; transform: scale(0.95); height: 0; margin: 0; padding: 0; }
+}
+
+
+/* --- The Final Hook Animations --- */
+
+/* Yes Path: Radiant & Flashy */
+.hook-happy {
+    animation: happyGlow 2s infinite, shimmer 3s infinite;
+    background: linear-gradient(45deg, var(--accent), #cf9c8a) !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 0 25px var(--accent);
+    transform: scale(1.1);
+}
+
+@keyframes happyGlow {
+    0% { box-shadow: 0 0 10px var(--accent); transform: scale(1.08); }
+    50% { box-shadow: 0 0 35px var(--accent); transform: scale(1.15); }
+    100% { box-shadow: 0 0 10px var(--accent); transform: scale(1.08); }
+}
+
+/* No Path: Subdued & Quiet */
+.hook-sad {
+    animation: sadSteady 4s infinite;
+    background: transparent !important;
+    border: 1px solid #555 !important;
+    color: #777 !important;
+    opacity: 0.6;
+    filter: grayscale(1);
+}
+
+@keyframes sadSteady {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.7; }
+}
+
+
+

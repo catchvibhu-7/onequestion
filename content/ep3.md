@@ -26,10 +26,12 @@ She takes photos.
 
 We take one horrible, filter-filled picture together.
 
-It is ugly.
+It was ugly.
 
-It is tragic.
+It was tragic.
 
-It is the only photo of the two of us together.
+***The picture should not exist.***
 
-I will never delete it.
+It was the only photo of the two of us together.
+
+I will never delete it. NEVER.

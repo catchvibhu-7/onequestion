@@ -1,15 +1,17 @@
 Mid-August.
 
-A fresh batch of engineering students — Civil, Electronics, Mechanical — are packed into a classroom for orientation. Everyone is nervous. Everyone is pretending not to be.
+A fresh batch of engineering students 
+— Civil, Electronics, Mechanical — 
+are packed into a classroom for orientation. Everyone is nervous. Everyone is pretending not to be.
 
-I have already given my introduction and am now doing what I do best in unfamiliar environments:
+I have already given my introduction and am now doing what I do best in unfamiliar environments,
 existing silently and hoping no one notices me.
 
-Then she introduces herself.
+Then a girl from a distant land introduces herself.
 
-Calm.
+***Calm.
 Confident.
-Elegant.
+Elegant.***
 
 I am mesmerised — along with roughly twenty other guys.
 
@@ -17,8 +19,9 @@ But my brain does something extra.
 
 It goes:
 
-“Oh.”
-“SO THIS IS MY TYPE.”
+**<u>“Oh!”</u>**
+
+**<u>“SO THATS MY TYPE.”</u>**
 
 No planning.
 No expectations.

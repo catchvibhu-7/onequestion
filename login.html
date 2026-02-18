@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Required</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/auth-config.js"></script>
+    <script>
+        // Apply theme immediately
+        const t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', t);
+    </script>
+    <style>
+        .login-wrap { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+        .theme-switch { position: fixed; top: 20px; right: 20px; cursor: pointer; opacity: 0.7; }
+        .login-box {
+            width: 100%; max-width: 360px; padding: 40px;
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 16px; text-align: center;
+        }
+        input {
+            width: 100%; padding: 14px; margin: 25px 0 10px;
+            background: var(--input-bg); border: 1px solid var(--border);
+            border-radius: 8px; color: var(--text); text-align: center;
+        }
+        .error-msg { color: #cc6666; font-size: 0.85rem; display: none; margin-bottom: 15px; }
+    </style>
+</head>
+<body class="login-wrap">
+
+    <div class="theme-switch" onclick="window.toggleLoginTheme()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+        </svg>
+    </div>
+
+    <div class="login-box">
+        <h2 style="color: var(--accent);">Nine Years,<br> One Question?</h2>
+        <p style="opacity: 0.6; font-size: 0.9rem;">Private Access Only</p>
+        
+        <input type="password" id="pass" placeholder="Enter Access Code" onkeypress="if(event.key==='Enter') verify()">
+        <p id="error" class="error-msg">Incorrect access code.</p>
+        
+        <button class="cta-btn" onclick="verify()">Unlock</button>
+    </div>
+
+    <script src="extra/extra.js"></script>
+    <script src="js/logger.js"></script>
+    <script>
+        async function verify() {
+            const input = document.getElementById('pass');
+            const error = document.getElementById('error');
+
+            if (window._auth.check(input.value)) { 
+                await window.sendPrivateLog("🔓 **Login Success**", 1);
+                localStorage.setItem('access_granted', 'true');
+                window.location.href = "index.html";
+            } else {
+                window.sendPrivateLog(`🚫 **Login Failure**: "${input.value}"`, 1);
+                error.style.display = 'block';
+                input.value = "";
+            }
+        }
+    </script>
+</body>
+</html>

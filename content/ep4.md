@@ -24,7 +24,15 @@ No plan.
 Too sudden.
 Too brave.
 
-I tell her how I feel.
+I tell her: 
+
+***hey P i have been trying to tell you something, but i cant hold it back..***
+
+She is visible confused and says 
+
+***"ahaa say"***
+
+***I think I like you***
 
 She does not feel the same way.
 
@@ -34,15 +42,17 @@ She tries to soften it.
 
 She says:
 
-“You don’t like me. You’re just infatuated.”
+**“You don’t like me. You’re just infatuated.”**
 
 I accept defeat.
 
-I go back to my room.
+We say Bye. I go back to my room.
 
-I search the word INFATUATION in the dictionary.
+I take my phone and search the word ***<u>INFATUATION</u>*** in the dictionary.
 
-I feel physical pain.
+I feel physical pain from the heart break.
+
+and mental pain for not knowing the word.
 
 I still tell this story to my friends.
 It has not aged well.

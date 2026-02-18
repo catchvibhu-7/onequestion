@@ -4,9 +4,9 @@ Given that I have already delivered one unforgettable first impression, I decide
 
 I introduce myself properly.
 
-“You remember me, right?”
+*“You remember me, right?”*
 
-To my surprise, she is completely unbothered — or just very good at hiding it — and says hi back.
+To my surprise, she is completely unbothered — or just very good at hiding it — and says *hi!!!* back.
 
 That is it.
 I cannot let this slip again.
@@ -40,7 +40,7 @@ I throw anime into the conversation pot.
 
 Shockingly — it works.
 
-Eventually, she trusts me enough to offer me the Holy Grail.
+Eventually, she trusts me enough to offer me ***the Holy Grail.***
 
 Her hard disk.
 Full of anime.
@@ -57,4 +57,6 @@ One Piece.
 
 My personality levels up slightly.
 
-Thank you for that, P.
+Time in hand slightly goes down, but was worth it.
+
+***Thank you for that, P.***
